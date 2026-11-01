@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" data-realm="logic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya Sinha | CS Undergrad & Debater • Newton School of Technology</title>
+  <meta name="description" content="Portfolio of Shreya Sinha — First-Year Computer Science undergraduate at Newton School of Technology (Class of 2030). Exploring algorithms, open-source hackathons, and parliamentary debate.">
+  <meta name="keywords" content="Shreya Sinha, Newton School of Technology, NST Pune, Computer Science Class of 2030, Python, Debating, NTPC, AIESEC, Portfolio">
+  <meta name="author" content="Shreya Sinha">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shreya Sinha | The Logic Garden & The Rhetoric Stage">
+  <meta property="og:description" content="Engineering with logic. Articulating with intent. First-year CS at Newton School of Technology (Class of 2030).">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Fraunces, Caveat, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            midnightTwilight: '#0A0E1C',
+            cardSurface: 'rgba(20, 26, 44, 0.72)',
+            cardSurfaceHover: 'rgba(26, 34, 58, 0.85)',
+            borderHairline: 'rgba(255, 255, 255, 0.08)',
+            wisteriaLilac: '#E9D5FF',
+            wisteriaGlow: '#C084FC',
+            butterPeach: '#FED7AA',
+            seafoamMint: '#A7F3D0',
+            celestialRose: '#FBCFE8',
+            warmIvory: '#FAF7F2',
+            slateMuted: '#94A3B8',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Fraunces"', 'Georgia', 'serif'],
+            hand: ['"Caveat"', 'cursive'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          borderRadius: {
+            'squircle': '22px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Custom Smooth Whimsical Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0E1C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(233, 213, 255, 0.18);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(233, 213, 255, 0.35);
+    }
+
+    /* Ambient Pastel Aura Glows */
+    .magical-aura {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: -20;
+      transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-realm="logic"] .realm-aura-1 {
+      background: #A7F3D0;
+      opacity: 0.15;
+    }
+    [data-realm="logic"] .realm-aura-2 {
+      background: #818CF8;
+      opacity: 0.14;
+    }
+    [data-realm="rhetoric"] .realm-aura-1 {
+      background: #E9D5FF;
+      opacity: 0.18;
+    }
+    [data-realm="rhetoric"] .realm-aura-2 {
+      background: #FBCFE8;
+      opacity: 0.16;
+    }
+
+    /* Background Stars & Stardust Pattern */
+    .bg-stardust {
+      background-size: 40px 40px;
+      background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+    }
+
+    /* 3D Flip Card Avatar Utilities */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Storybook Washi Tape Flourish */
+    .washi-tape {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.5deg);
+      width: 96px;
+      height: 22px;
+      background: rgba(254, 215, 170, 0.55);
+      backdrop-filter: blur(6px);
+      border-left: 2px dashed rgba(255, 255, 255, 0.45);
+      border-right: 2px dashed rgba(255, 255, 255, 0.45);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Bento Border Beam Effect */
+    .border-beam-magical {
+      position: relative;
+      border-radius: 24px;
+      padding: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+    .border-beam-magical::before {
+      content: '';
+      position: absolute;
+      inset: -150%;
+      background: conic-gradient(from 0deg, transparent 0deg, var(--beam-glow-color, rgba(233, 213, 255, 0.45)) 60deg, transparent 120deg);
+      animation: rotateBeam 6.5s linear infinite;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .border-beam-magical:hover::before {
+      opacity: 1;
+    }
+    @keyframes rotateBeam {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Soundwave Equalizer Animation */
+    .soundwave-bar {
+      animation: soundwaveBounce 1.1s ease-in-out infinite alternate;
+    }
+    .soundwave-bar:nth-child(1) { animation-delay: 0.1s; }
+    .soundwave-bar:nth-child(2) { animation-delay: 0.4s; }
+    .soundwave-bar:nth-child(3) { animation-delay: 0.2s; }
+    .soundwave-bar:nth-child(4) { animation-delay: 0.5s; }
+    @keyframes soundwaveBounce {
+      0% { height: 4px; }
+      100% { height: 14px; }
+    }
+    .soundwave-paused .soundwave-bar {
+      animation-play-state: paused;
+      height: 4px !important;
+    }
+
+    /* Editorial Serif Gradient */
+    .text-storybook-title {
+      background: linear-gradient(135deg, #FAF7F2 20%, #F5EFEB 50%, #E9D5FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Magnetic Dock Hover Scale */
+    .dock-pill {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    }
+    .dock-pill:hover {
+      transform: scale(1.18) translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-midnightTwilight text-warmIvory font-sans antialiased selection:bg-wisteriaGlow/30 selection:text-white relative min-h-screen pb-36">
+
+  <!-- ==================== AMBIENT PASTEL AURA GLOWS ==================== -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-30">
+    <div id="realmGlow1" class="magical-aura realm-aura-1 -top-32 right-[-5%] w-[640px] h-[640px]"></div>
+    <div id="realmGlow2" class="magical-aura realm-aura-2 bottom-[-8%] left-[-10%] w-[580px] h-[580px]"></div>
+    <div class="magical-aura top-[45%] right-[10%] w-[480px] h-[480px] bg-butterPeach opacity-10"></div>
+    <div class="magical-aura top-[20%] left-[10%] w-[500px] h-[500px] bg-celestialRose opacity-10"></div>
+    <div class="absolute inset-0 bg-stardust opacity-60"></div>
+  </div>
+
+  <!-- ==================== 1. FLOATING GLASS ISLAND NAVBAR ==================== -->
+  <div class="sticky top-4 z-40 max-w-5xl mx-auto px-4 sm:px-6">
+    <header class="bg-cardSurface backdrop-blur-xl rounded-full px-4 py-2 sm:px-5 sm:py-2.5 shadow-2xl flex items-center justify-between border border-borderHairline gap-2 transition-all">
+      
+      <!-- Monogram & Identity -->
+      <a href="#hero" class="flex items-center gap-2.5 group flex-shrink-0">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-wisteriaGlow/20 via-white/5 to-butterPeach/20 border border-white/10 flex items-center justify-center font-mono font-bold text-xs text-warmIvory group-hover:scale-105 group-hover:border-wisteriaGlow transition-all">
+          SS
+        </div>
+        <span class="font-serif italic font-semibold text-sm sm:text-base tracking-tight text-warmIvory hidden sm:inline">Shreya Sinha</span>
+      </a>
+
+      <!-- Serendipity Pill (Auto fades every 8s, tap for instant cycle & confetti) -->
+      <button onclick="cycleSerendipityQuote(true)" class="group flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs font-mono text-slateMuted hover:text-warmIvory transition-all max-w-[210px] sm:max-w-xs truncate cursor-pointer shadow-sm" title="Click to rotate quote & spray confetti ✨">
+        <span class="text-wisteriaGlow group-hover:rotate-12 transition-transform text-xs">✨</span>
+        <span id="serendipityText" class="truncate font-hand text-sm sm:text-base text-wisteriaLilac transition-opacity duration-300">"if its meant to be it will be"</span>
+      </button>
+
+      <!-- Right Action Hub: Lo-Fi Music Box & Say Hi Confetti -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        
+        <!-- Ambient Lo-Fi / Soft Melody Player -->
+        <button id="lofiPlayerBtn" onclick="toggleSoftMelody()" class="px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-mono text-slateMuted hover:text-warmIvory bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all flex items-center gap-2 group active:scale-95" title="Toggle Calming Ambient Lo-Fi Drone">
+          <div id="soundwaveGraphic" class="flex items-end gap-0.5 h-3.5 soundwave-paused">
+            <span class="w-0.5 rounded-full bg-seafoamMint soundwave-bar"></span>
+            <span class="w-0.5 rounded-full bg-wisteriaGlow soundwave-bar"></span>
+            <span class="w-0.5 rounded-full bg-butterPeach soundwave-bar"></span>
+            <span class="w-0.5 rounded-full bg-celestialRose soundwave-bar"></span>
+          </div>
+          <span id="soundwaveLabel" class="hidden md:inline text-[11px]">♫ Soft Melody</span>
+        </button>
+
+        <!-- "Say Hi ✨" Confetti Button -->
+        <button onclick="triggerConfetti(this)" class="px-3.5 py-1 rounded-full text-xs font-medium text-warmIvory bg-gradient-to-r from-wisteriaGlow/25 via-celestialRose/20 to-butterPeach/20 hover:from-wisteriaGlow/40 hover:to-celestialRose/40 border border-wisteriaGlow/40 hover:border-wisteriaGlow transition-all flex items-center gap-1 active:scale-95 shadow-sm" title="Click for a burst of pastel confetti!">
+          <span>Say Hi</span>
+          <span class="text-xs">✨</span>
+        </button>
+
+      </div>
+
+    </header>
+  </div>
+
+  <!-- ==================== MAIN STORYBOOK CONTAINER (GENEROUS SPACING) ==================== -->
+  <main class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 space-y-24 sm:space-y-32">
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="hero" class="space-y-8 pt-4">
+      
+      <div class="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8">
+        
+        <!-- Hero Text & Copy -->
+        <div class="space-y-5 max-w-2xl">
+          
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-borderHairline text-xs font-mono text-slateMuted shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-seafoamMint animate-pulse"></span>
+            <span>First-Year CS Undergrad @ Newton School of Technology • Class of 2030</span>
+          </div>
+
+          <!-- Headline (Warm Fraunces & Plus Jakarta Sans) -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-storybook-title leading-[1.15]">
+            Engineering with <span class="italic text-seafoamMint">logic.</span><br />
+            Articulating with <span class="italic text-wisteriaGlow">intent.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-base sm:text-lg text-slateMuted leading-relaxed">
+            First-year computer science undergrad at <strong class="text-warmIvory font-semibold">Newton School of Technology</strong>. Navigating algorithms, participating in open-source hackathons, and exploring global youth impact through competitive parliamentary debating and AIESEC.
+          </p>
+
+          <!-- Whimsical Handwritten Micro-Note -->
+          <div class="pt-1 flex items-center gap-2 text-wisteriaLilac font-hand text-lg">
+            <span>✎</span>
+            <span>"balancing syntax trees with debate podiums."</span>
+          </div>
+
+          <!-- Primary Quick Action Pills -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            
+            <a href="#lab" class="px-5 py-2.5 rounded-full font-semibold text-xs text-midnightTwilight bg-warmIvory hover:bg-white shadow-md shadow-white/10 hover:-translate-y-0.5 transition-all flex items-center gap-1.5">
+              <span>Explore Code Lab</span>
+              <span>↓</span>
+            </a>
+
+            <a href="https://github.com/shreyasinha003" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full font-mono text-xs text-warmIvory bg-cardSurface border border-borderHairline hover:border-wisteriaGlow/50 hover:-translate-y-0.5 transition-all flex items-center gap-2 group">
+              <i data-lucide="github" class="w-4 h-4 text-slateMuted group-hover:text-wisteriaLilac transition-colors"></i>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/shreya-s007?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full font-mono text-xs text-warmIvory bg-cardSurface border border-borderHairline hover:border-celestialRose/50 hover:-translate-y-0.5 transition-all flex items-center gap-2 group">
+              <i data-lucide="linkedin" class="w-4 h-4 text-celestialRose"></i>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- One-Click Copy Pill -->
+            <button onclick="copyEmail(this)" class="px-4 py-2.5 rounded-full font-mono text-xs text-slateMuted hover:text-warmIvory bg-cardSurface border border-borderHairline hover:border-butterPeach/60 transition-all flex items-center gap-2 group active:scale-95" title="Click to copy email">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-butterPeach"></i>
+              <span class="email-btn-label">shreyasinha384@gmail.com</span>
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- 2. Interactive 3D Flip Card Avatar (Squircle Monogram with Pastel Breathing Border) -->
+        <div class="perspective-1000 flex-shrink-0 group cursor-pointer" title="Hover or tap to reveal handwritten secret note!">
+          <div class="flip-card-inner relative w-28 h-28 sm:w-32 sm:h-32 transition-transform duration-700 transform-style-3d group-hover:rotate-y-180">
+            
+            <!-- Front Face: Illustrated Monogram with Pastel Gradient Outline -->
+            <div class="flip-card-front absolute inset-0 backface-hidden rounded-squircle bg-cardSurface backdrop-blur-xl border border-wisteriaGlow/30 p-1 shadow-2xl flex flex-col items-center justify-center">
+              <div class="w-full h-full rounded-[19px] bg-gradient-to-br from-wisteriaGlow/15 via-midnightTwilight to-butterPeach/15 flex flex-col items-center justify-center p-3">
+                <span class="font-serif italic text-2xl font-bold text-warmIvory tracking-wide">[SS]</span>
+                <span class="text-[11px] font-hand text-wisteriaLilac mt-1 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-seafoamMint animate-pulse"></span>
+                  <span>hover / tap</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Back Face: Handwritten-Style Secret Note in Caveat Font -->
+            <div class="flip-card-back absolute inset-0 backface-hidden rotate-y-180 rounded-squircle bg-gradient-to-br from-[#12182E] via-cardSurface to-[#12182E] border border-celestialRose/40 p-3 flex items-center justify-center text-center shadow-2xl">
+              <p class="font-hand text-lg sm:text-xl text-wisteriaLilac leading-snug">
+                "Hey, welcome to my corner of the web ✨"
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== 3. THE "TWO REALMS" SWITCHER (LOGIC GARDEN ↔ RHETORIC STAGE) ==================== -->
+    <section class="flex flex-col items-center justify-center gap-3 pt-4">
+      <div class="inline-flex items-center p-1 rounded-full bg-cardSurface backdrop-blur-xl border border-borderHairline text-xs font-mono shadow-md">
+        <button id="realmBtnLogic" onclick="switchRealm('logic')" class="px-4 py-2 rounded-full transition-all flex items-center gap-2 text-warmIvory bg-white/10 shadow-sm border border-white/10">
+          <span>The Logic Garden</span>
+          <span>💻</span>
+        </button>
+        <button id="realmBtnRhetoric" onclick="switchRealm('rhetoric')" class="px-4 py-2 rounded-full transition-all flex items-center gap-2 text-slateMuted hover:text-warmIvory border border-transparent">
+          <span>The Rhetoric Stage</span>
+          <span>🎙️</span>
+        </button>
+      </div>
+      <span class="text-xs font-mono text-slateMuted">Switch realms to cross-fade showcase focus &amp; backdrop glow</span>
+    </section>
+
+    <!-- ==================== 4. REALM-REACTIVE SPOTLIGHT CARD (BORDER BEAM) ==================== -->
+    <section class="border-beam-magical" id="realmSpotlightWrapper" style="--beam-glow-color: rgba(167, 243, 208, 0.45);">
+      <div class="bg-cardSurface backdrop-blur-xl rounded-[23px] p-7 sm:p-9 space-y-4">
+        
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span id="realmSpotlightIcon" class="text-xl">💻</span>
+            <span id="realmSpotlightBadge" class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-seafoamMint/10 text-seafoamMint border border-seafoamMint/25">
+              Realm: The Logic Garden
+            </span>
+          </div>
+          <span class="text-xs font-mono text-slateMuted">Newton School of Tech • '30</span>
+        </div>
+
+        <!-- Dynamic Realm Content Cross-Fader -->
+        <div id="realmSpotlightContent" class="space-y-3 transition-opacity duration-300">
+          <h2 id="realmSpotlightTitle" class="text-2xl sm:text-3xl font-serif italic text-warmIvory tracking-tight">
+            Hacktober Hack Day 2026 &amp; Algorithmic Foundations
+          </h2>
+          <p id="realmSpotlightDesc" class="text-sm sm:text-base text-slateMuted leading-relaxed max-w-3xl">
+            Collaborative open-source sprint project built during Hacktober Hack Day 2026. Emphasizing clean frontend component architecture, branch management, collaborative pull request reviews, and procedural Python logic flow.
+          </p>
+          
+          <div id="realmSpotlightChips" class="flex flex-wrap gap-2 pt-2 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-seafoamMint border border-borderHairline">Python 3</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slateMuted border border-borderHairline">Git Branching</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-butterPeach border border-borderHairline">Hacktober '26</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slateMuted border border-borderHairline">Algorithmic Logic</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. INTERACTIVE PYTHON PROBLEM-SOLVING LAB (LIVE PRIME GENERATOR) ==================== -->
+    <section id="lab" class="border-beam-magical scroll-mt-24" style="--beam-glow-color: rgba(233, 213, 255, 0.45);">
+      <div class="bg-cardSurface backdrop-blur-xl rounded-[23px] p-6 sm:p-8 space-y-5">
+        
+        <!-- Lab Header -->
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-borderHairline pb-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-seafoamMint inline-block animate-ping"></span>
+              <span class="text-xs font-mono uppercase tracking-widest text-wisteriaGlow">Live Python Execution Lab</span>
+            </div>
+            <h3 class="text-lg font-serif italic text-warmIvory">Prime Number Generator (Sieve / Sqrt Method)</h3>
+          </div>
+
+          <!-- Controls: Custom input for N & Run Button -->
+          <div class="flex items-center gap-2.5 font-mono text-xs">
+            <label for="primeInputN" class="text-slateMuted">n =</label>
+            <input type="number" id="primeInputN" value="30" min="2" max="150" class="w-16 px-2.5 py-1 rounded-lg bg-midnightTwilight border border-white/10 text-warmIvory focus:border-wisteriaGlow outline-none text-center">
+            
+            <button onclick="runPrimeGenerator()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-midnightTwilight bg-seafoamMint hover:bg-mintPastel transition-all flex items-center gap-1.5 active:scale-95 shadow-sm">
+              <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+              <span>Run Code ✨</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- The Exact Python Snippet requested by the user -->
+        <div class="font-mono text-xs sm:text-[13px] text-slate-300 space-y-1 overflow-x-auto p-4 bg-[#070A14] rounded-2xl border border-white/5 leading-relaxed">
+          <div class="text-slateMuted font-hand text-base pb-1"># Live Python logic developed at Newton School of Technology</div>
+          <div><span class="text-celestialRose">def</span> <span class="text-wisteriaLilac">isPrime</span>(num):</div>
+          <div class="pl-4"><span class="text-celestialRose">if</span> num == <span class="text-butterPeach">1</span>:</div>
+          <div class="pl-8"><span class="text-celestialRose">return</span> <span class="text-wisteriaGlow">False</span></div>
+          <div class="pl-4"><span class="text-celestialRose">for</span> i <span class="text-celestialRose">in</span> range(<span class="text-butterPeach">2</span>, int(num**<span class="text-butterPeach">0.5</span>) + <span class="text-butterPeach">1</span>):</div>
+          <div class="pl-8"><span class="text-celestialRose">if</span> num % i == <span class="text-butterPeach">0</span>:</div>
+          <div class="pl-12"><span class="text-celestialRose">return</span> <span class="text-wisteriaGlow">False</span></div>
+          <div class="pl-4"><span class="text-celestialRose">return</span> <span class="text-wisteriaGlow">True</span></div>
+          <div class="pt-2">n = int(input())</div>
+          <div><span class="text-celestialRose">for</span> num <span class="text-celestialRose">in</span> range(<span class="text-butterPeach">1</span>, n + <span class="text-butterPeach">1</span>):</div>
+          <div class="pl-4"><span class="text-celestialRose">if</span> isPrime(num) == <span class="text-wisteriaGlow">True</span>:</div>
+          <div class="pl-8">print(num, end=<span class="text-seafoamMint">" "</span>)</div>
+        </div>
+
+        <!-- Interactive Terminal Output Display -->
+        <div id="primeConsole" class="p-3.5 rounded-xl bg-seafoamMint/10 border border-seafoamMint/25 text-xs font-mono text-seafoamMint flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span>➜</span>
+            <span id="primeResult">Primes up to 30: <strong>2 3 5 7 11 13 17 19 23 29</strong></span>
+          </div>
+          <span class="text-[10px] text-slateMuted">Execution: 0.12ms ✨</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. STORYBOOK BENTO GRID ==================== -->
+    <section class="space-y-6">
+      
+      <div class="border-b border-borderHairline pb-3 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-mono font-semibold uppercase tracking-widest text-wisteriaGlow">Storybook Chapters</span>
+          <h2 class="text-2xl font-serif italic text-warmIvory tracking-tight mt-0.5">Foundations, Accolades &amp; Softcore Vibe</h2>
+        </div>
+        <span class="text-xs font-mono text-slateMuted">Refined &amp; Uncluttered</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- CARD A: Academic Rigor & Learning Philosophy (7 cols) -->
+        <div class="md:col-span-7 bg-cardSurface backdrop-blur-xl rounded-3xl p-7 border border-borderHairline space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono text-seafoamMint bg-seafoamMint/10 border border-seafoamMint/25">
+                Curriculum
+              </span>
+              <span class="text-xs font-mono text-slateMuted">NST Pune • '30</span>
+            </div>
+
+            <h3 class="text-xl font-serif font-bold text-warmIvory">Academic Rigor &amp; Learning Philosophy</h3>
+            <p class="text-xs text-slateMuted leading-relaxed">
+              Grounding computer science in mathematical principles, logic, and self-directed inquiry.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="p-3 rounded-2xl bg-midnightTwilight/80 border border-borderHairline space-y-1">
+                <span class="font-bold text-warmIvory block">Problem Solving &amp; Logic</span>
+                <p class="text-[11px] text-slateMuted">Procedural loops, condition validations, and algorithm efficiency in Python.</p>
+              </div>
+              <div class="p-3 rounded-2xl bg-midnightTwilight/80 border border-borderHairline space-y-1">
+                <span class="font-bold text-warmIvory block">Computational Physics</span>
+                <p class="text-[11px] text-slateMuted">Signal dynamics, physical models, and foundational semiconductor reasoning.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-borderHairline flex items-center justify-between text-xs font-mono text-slateMuted">
+            <span>First Principles</span>
+            <span class="text-seafoamMint">Class of 2030</span>
+          </div>
+        </div>
+
+        <!-- CARD B: The "Softcore" Vibe Corner (5 cols) Styled as a Sticky Note with Washi Tape -->
+        <div class="md:col-span-5 relative sticky-note rounded-3xl p-7 flex flex-col justify-between">
+          <!-- Storybook Washi Tape Flourish at top -->
+          <div class="washi-tape"></div>
+
+          <div class="space-y-3 pt-1">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono text-celestialRose bg-celestialRose/10 border border-celestialRose/20">
+                Behind The IDE
+              </span>
+              <span class="text-xs font-mono text-slateMuted">Vibe Corner</span>
+            </div>
+
+            <h3 class="text-xl font-serif font-bold text-warmIvory">The "Softcore" Space</h3>
+            
+            <p class="font-hand text-base sm:text-lg text-wisteriaLilac leading-snug">
+              "When I step away from code, I curate quiet spaces, capture analog memories on 35mm film, write reflective poetry, and pour fresh coffee before long problem-solving sprints."
+            </p>
+
+            <div class="space-y-1 text-xs font-mono text-slateMuted pt-1">
+              <div>✦ Writing poetry to decompress thoughts</div>
+              <div>✦ Film photography &amp; warm natural lighting</div>
+              <div>✦ High emotional intelligence &amp; listening</div>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-3 border-t border-white/10 text-xs font-mono text-slateMuted flex items-center justify-between">
+            <span>Mindfulness</span>
+            <span class="text-celestialRose font-hand text-base">Shreya's Desk ☕</span>
+          </div>
+        </div>
+
+        <!-- CARD C: NTPC Debate Champion (6 cols) -->
+        <div class="md:col-span-6 bg-cardSurface backdrop-blur-xl rounded-3xl p-7 border border-borderHairline space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono text-wisteriaGlow bg-wisteriaGlow/10 border border-wisteriaGlow/25 flex items-center gap-1.5">
+                <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+                <span>NTPC Debate Champion</span>
+              </span>
+              <span class="text-xs font-mono text-slateMuted">National</span>
+            </div>
+
+            <h3 class="text-lg font-serif font-bold text-warmIvory">Parliamentary Debate &amp; Public Oratory</h3>
+            <p class="text-xs text-slateMuted leading-relaxed">
+              Multiple-time winner across prestigious debate tournaments organized by NTPC. Specializing in rapid rebuttal under strict adjudicator rubrics, policy analysis, and persuasive delivery.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-borderHairline flex items-center justify-between text-xs font-mono text-slateMuted">
+            <span class="text-wisteriaGlow">#PolicyDebate</span>
+            <span>Multiple Titles</span>
+          </div>
+        </div>
+
+        <!-- CARD D: AIESEC & Global Exchange Turkey (6 cols) -->
+        <div class="md:col-span-6 bg-cardSurface backdrop-blur-xl rounded-3xl p-7 border border-borderHairline space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full text-xs font-mono text-seafoamMint bg-seafoamMint/10 border border-seafoamMint/25 flex items-center gap-1.5">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                <span>AIESEC • Turkey IXP '26</span>
+              </span>
+              <span class="text-xs font-mono text-slateMuted">Global Impact</span>
+            </div>
+
+            <h3 class="text-lg font-serif font-bold text-warmIvory">AIESEC Youth Leadership &amp; Exchange</h3>
+            <p class="text-xs text-slateMuted leading-relaxed">
+              Active member driving youth leadership spaces and team operations. Selected for an upcoming international youth exchange project (IXP) in Turkey, collaborating on cross-cultural youth empowerment.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-borderHairline flex items-center justify-between text-xs font-mono text-slateMuted">
+            <span class="text-seafoamMint">#TurkeyExchange</span>
+            <span>Selected Delegate</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer class="pt-10 border-t border-borderHairline flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slateMuted gap-4 text-center sm:text-left">
+      <div>
+        Designed &amp; Built by <span class="text-warmIvory font-medium font-serif italic text-sm">Shreya Sinha</span> • Newton School of Technology (Class of 2030)
+      </div>
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-wisteriaLilac transition-colors flex items-center gap-1.5 cursor-pointer">
+        <span>Back to Top</span>
+        <span>↑</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- ==================== 8. FLOATING MAGNETIC SOCIAL DOCK (MACOS STYLE) ==================== -->
+  <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-full bg-[#0A0E1C]/90 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center gap-3" aria-label="Social Profiles and Reach-out Dock">
+    
+    <!-- GitHub Link -->
+    <a href="https://github.com/shreyasinha003" target="_blank" rel="noopener noreferrer" class="dock-pill p-2 rounded-full bg-white/5 hover:bg-white/15 text-slateMuted hover:text-warmIvory transition-all group relative" title="View GitHub: @shreyasinha003">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <span class="absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-mono bg-midnightTwilight border border-borderHairline text-warmIvory px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
+        GitHub
+      </span>
+    </a>
+
+    <!-- LinkedIn Link -->
+    <a href="https://www.linkedin.com/in/shreya-s007?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="dock-pill p-2 rounded-full bg-white/5 hover:bg-celestialRose/20 text-slateMuted hover:text-celestialRose transition-all group relative" title="Connect on LinkedIn">
+      <svg class="w-4 h-4 fill-current text-celestialRose" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.45 1.45 0 0 0 0-2.9 1.45 1.45 0 0 0 0 2.9m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+      <span class="absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-mono bg-midnightTwilight border border-borderHairline text-warmIvory px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
+        LinkedIn
+      </span>
+    </a>
+
+    <!-- Divider in Dock -->
+    <div class="h-3.5 w-px bg-white/10"></div>
+
+    <!-- Copy Email Dock Item -->
+    <button onclick="copyEmail(this)" class="dock-pill p-2 rounded-full bg-white/5 hover:bg-butterPeach/20 text-slateMuted hover:text-butterPeach transition-all group relative" title="Copy shreyasinha384@gmail.com">
+      <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      <span class="absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-mono bg-midnightTwilight border border-borderHairline text-warmIvory px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
+        Copy Email
+      </span>
+    </button>
+
+    <!-- Direct Mailto Compose -->
+    <a href="mailto:shreyasinha384@gmail.com" class="dock-pill p-2 rounded-full bg-white/5 hover:bg-seafoamMint/20 text-slateMuted hover:text-seafoamMint transition-all group relative" title="Compose Email">
+      <i data-lucide="send" class="w-4 h-4 text-seafoamMint"></i>
+      <span class="absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-mono bg-midnightTwilight border border-borderHairline text-warmIvory px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-lg">
+        Compose
+      </span>
+    </a>
+
+  </nav>
+
+  <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 transform translate-y-8 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-cardSurface backdrop-blur-xl px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-xs font-mono text-warmIvory border border-wisteriaGlow/30">
+      <span class="text-sm">🌸</span>
+      <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPT LOGIC ==================== -->
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+
+    // 1. Serendipity Quotes Cycler (Rotates every 8s, tap for instant cycle & confetti)
+    const serendipityQuotes = [
+      "if its meant to be it will be",
+      "what big it all works out?",
+      "trust the timing of your life everything is unfolding perfectly"
+    ];
+    let quoteIdx = 0;
+
+    function cycleSerendipityQuote(triggerConfettiFlag = false) {
+      quoteIdx = (quoteIdx + 1) % serendipityQuotes.length;
+      const target = document.getElementById('serendipityText');
+      if (target) {
+        target.style.opacity = '0';
+        setTimeout(() => {
+          target.textContent = `"${serendipityQuotes[quoteIdx]}"`;
+          target.style.opacity = '1';
+        }, 150);
+      }
+      if (triggerConfettiFlag) {
+        triggerConfetti();
+        showToast("Serendipity refreshed! ✨");
+      }
+    }
+
+    // Auto-cycle every 8s
+    setInterval(() => {
+      cycleSerendipityQuote(false);
+    }, 8000);
+
+    // 2. Calming Lo-Fi Ambient Audio Synthesizer (Web Audio API - 100% offline & soothing)
+    let audioCtx = null;
+    let isPlayingLoFi = false;
+    let oscillators = [];
+    let lofiGain = null;
+
+    function toggleSoftMelody() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      const wave = document.getElementById('soundwaveGraphic');
+      const label = document.getElementById('soundwaveLabel');
+
+      if (!isPlayingLoFi) {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        // Peaceful E-Major 9th Ambient Chord: E3, B3, D#4, F#4
+        const freqs = [164.81, 246.94, 311.13, 369.99];
+        lofiGain = audioCtx.createGain();
+        lofiGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        lofiGain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 1.2);
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 420;
+
+        oscillators = freqs.map(freq => {
+          const osc = audioCtx.createOscillator();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          osc.connect(filter);
+          osc.start();
+          return osc;
+        });
+
+        filter.connect(lofiGain);
+        lofiGain.connect(audioCtx.destination);
+
+        isPlayingLoFi = true;
+        wave.classList.remove('soundwave-paused');
+        if (label) label.textContent = 'Pause Melody';
+        showToast("Playing soothing ambient lo-fi ✨");
+      } else {
+        if (lofiGain) {
+          lofiGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.8);
+          setTimeout(() => {
+            oscillators.forEach(osc => osc.stop());
+            oscillators = [];
+          }, 800);
+        }
+        isPlayingLoFi = false;
+        wave.classList.add('soundwave-paused');
+        if (label) label.textContent = '♫ Soft Melody';
+        showToast("Soft melody paused");
+      }
+    }
+
+    // 3. The "Two Realms" Switcher
+    const realmData = {
+      logic: {
+        icon: '💻',
+        badge: 'Realm: The Logic Garden',
+        title: 'Hacktober Hack Day 2026 & Algorithmic Foundations',
+        desc: 'Collaborative open-source sprint project built during Hacktober Hack Day 2026. Emphasizing clean frontend component architecture, branch management, collaborative pull request reviews, and procedural Python logic flow.',
+        chips: ['Python 3', 'Git Branching', 'Hacktober \'26', 'Algorithmic Logic'],
+        beamGlow: 'rgba(167, 243, 208, 0.45)',
+        glow1: '#A7F3D0',
+        glow2: '#818CF8'
+      },
+      rhetoric: {
+        icon: '🎙️',
+        badge: 'Realm: The Rhetoric Stage',
+        title: 'NTPC Debate Champion & Parliamentary Oratory',
+        desc: 'Multi-time debate champion across national leagues hosted by NTPC. Skilled in impromptu rebuttals, policy motion dissection, public speaking, and leading cross-cultural initiatives with AIESEC and the upcoming Turkey youth exchange.',
+        chips: ['NTPC Champion', 'Impromptu Rebuttal', 'AIESEC Operations', 'Turkey IXP \'26'],
+        beamGlow: 'rgba(233, 213, 255, 0.45)',
+        glow1: '#E9D5FF',
+        glow2: '#FBCFE8'
+      }
+    };
+
+    function switchRealm(realm) {
+      document.documentElement.setAttribute('data-realm', realm);
+
+      const btnLogic = document.getElementById('realmBtnLogic');
+      const btnRhetoric = document.getElementById('realmBtnRhetoric');
+      const content = document.getElementById('realmSpotlightContent');
+      const wrapper = document.getElementById('realmSpotlightWrapper');
+      const g1 = document.getElementById('realmGlow1');
+      const g2 = document.getElementById('realmGlow2');
+
+      if (realm === 'logic') {
+        btnLogic.className = 'px-4 py-2 rounded-full transition-all flex items-center gap-2 text-warmIvory bg-white/10 shadow-sm border border-white/10';
+        btnRhetoric.className = 'px-4 py-2 rounded-full transition-all flex items-center gap-2 text-slateMuted hover:text-warmIvory border border-transparent';
+      } else {
+        btnRhetoric.className = 'px-4 py-2 rounded-full transition-all flex items-center gap-2 text-warmIvory bg-white/10 shadow-sm border border-white/10';
+        btnLogic.className = 'px-4 py-2 rounded-full transition-all flex items-center gap-2 text-slateMuted hover:text-warmIvory border border-transparent';
+      }
+
+      content.style.opacity = '0';
+      setTimeout(() => {
+        const d = realmData[realm];
+        wrapper.style.setProperty('--beam-glow-color', d.beamGlow);
+        if (g1) g1.style.backgroundColor = d.glow1;
+        if (g2) g2.style.backgroundColor = d.glow2;
+
+        document.getElementById('realmSpotlightIcon').textContent = d.icon;
+        document.getElementById('realmSpotlightBadge').textContent = d.badge;
+        document.getElementById('realmSpotlightTitle').textContent = d.title;
+        document.getElementById('realmSpotlightDesc').textContent = d.desc;
+
+        const chipsEl = document.getElementById('realmSpotlightChips');
+        chipsEl.innerHTML = d.chips.map(chip => 
+          `<span class="px-2.5 py-1 rounded-md bg-white/5 text-warmIvory border border-borderHairline">${chip}</span>`
+        ).join('');
+
+        content.style.opacity = '1';
+        showToast(realm === 'logic' ? 'Entered The Logic Garden 💻' : 'Entered The Rhetoric Stage 🎙️');
+      }, 150);
+    }
+
+    // 4. Interactive Live Prime Generator (Exact JavaScript port of Shreya's Python code)
+    function isPrime(num) {
+      if (num === 1) return false;
+      const limit = Math.floor(Math.sqrt(num));
+      for (let i = 2; i <= limit; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    function runPrimeGenerator() {
+      const inputVal = parseInt(document.getElementById('primeInputN').value, 10) || 30;
+      const n = Math.min(Math.max(inputVal, 2), 200);
+      document.getElementById('primeInputN').value = n;
+
+      const t0 = performance.now();
+      const primes = [];
+      for (let num = 1; num <= n; num++) {
+        if (isPrime(num)) {
+          primes.push(num);
+        }
+      }
+      const t1 = performance.now();
+      const execTime = (t1 - t0).toFixed(2);
+
+      const resultEl = document.getElementById('primeResult');
+      resultEl.innerHTML = `Primes up to ${n}: <strong>${primes.join(' ')}</strong>`;
+      
+      triggerConfetti();
+      showToast(`Computed ${primes.length} primes in ${execTime}ms ✨`);
+    }
+
+    // 5. One-Click Copy Email with Label Feedback
+    function copyEmail(triggerEl) {
+      const email = 'shreyasinha384@gmail.com';
+      const label = triggerEl.querySelector('.email-btn-label');
+      const original = label ? label.textContent : '';
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => {
+          if (label) {
+            label.textContent = 'Copied to clipboard! 🌸';
+            setTimeout(() => {
+              label.textContent = original;
+            }, 2000);
+          }
+          showToast('Copied ' + email + ' to clipboard! 🌸');
+        }).catch(() => {
+          showToast('Email: ' + email);
+        });
+      } else {
+        showToast('Email: ' + email);
+      }
+    }
+
+    // 6. Whimsical Pastel Confetti Helper
+    function triggerConfetti(btn) {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 50,
+          spread: 68,
+          origin: { y: 0.65 },
+          colors: ['#E9D5FF', '#FED7AA', '#A7F3D0', '#FBCFE8', '#FAF7F2']
+        });
+      }
+    }
+
+    // 7. Toast Notification Utility
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      toast.classList.remove('translate-y-8', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-8', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
